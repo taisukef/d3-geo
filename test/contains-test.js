@@ -113,3 +113,12 @@ tape("null contains nothing", function(test) {
   test.equal(d3.geoContains(null, [0, 0]), false);
   test.end();
 });
+
+tape("a LineString with 2+ points contains those points", function(test) {
+  var points = [[0, 0], [1,2], [3, 4], [5, 6]];
+  var feature = {type: "LineString", coordinates: points};
+  points.forEach(point => {
+    test.equal(d3.geoContains(feature, point), true);
+  });
+  test.end();
+});

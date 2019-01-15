@@ -58,11 +58,17 @@ function containsPoint(coordinates, point) {
   return distance(coordinates, point) === 0;
 }
 
-function containsLine(coordinates, point) {
-  var ab = distance(coordinates[0], coordinates[1]),
-      ao = distance(coordinates[0], point),
-      ob = distance(point, coordinates[1]);
+function containsLineSegment(a, b, point) {
+  var ab = distance(a, b),
+      ao = distance(a, point),
+      ob = distance(point, b);
   return ao + ob <= ab + epsilon;
+}
+
+function containsLine(coordinates, point) {
+  var i = -1, n = coordinates.length-1;
+  while (++i < n) if (containsLineSegment(coordinates[i], coordinates[i+1], point)) return true;
+  return false;
 }
 
 function containsPolygon(coordinates, point) {
