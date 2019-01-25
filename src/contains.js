@@ -1,6 +1,6 @@
 import {default as polygonContains} from "./polygonContains";
 import {default as distance} from "./distance";
-import {epsilon, radians} from "./math";
+import {epsilon2, radians} from "./math";
 
 var containsObjectType = {
   Feature: function(object, point) {
@@ -58,16 +58,23 @@ function containsPoint(coordinates, point) {
   return distance(coordinates, point) === 0;
 }
 
-function containsLineSegment(a, b, point) {
-  var ab = distance(a, b),
-      ao = distance(a, point),
-      ob = distance(point, b);
-  return ao + ob <= ab + epsilon;
-}
-
 function containsLine(coordinates, point) {
-  var i = -1, n = coordinates.length-1;
-  while (++i < n) if (containsLineSegment(coordinates[i], coordinates[i+1], point)) return true;
+  var ao, bo, ab;
+  for (var i = 0, n = coordinates.length; i < n; i++) {
+    bo = distance(coordinates[i], point);
+    if (bo === 0) return true;
+    if (i > 0) {
+      ab = distance(coordinates[i], coordinates[i - 1]);
+      if (
+        ab > 0 &&
+        ao <= ab &&
+        bo <= ab &&
+        (ao + bo - ab) * (1 - ((ao - bo) / ab) ** 2) < epsilon2 * ab
+      )
+        return true;
+    }
+    ao = bo;
+  }
   return false;
 }
 

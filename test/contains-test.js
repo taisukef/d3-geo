@@ -31,6 +31,35 @@ tape("a LineString contains any point on the Great Circle path", function(test) 
   test.end();
 });
 
+tape("a LineString with 2+ points contains those points", function(test) {
+  var points = [[0, 0], [1,2], [3, 4], [5, 6]];
+  var feature = {type: "LineString", coordinates: points};
+  points.forEach(point => {
+    test.equal(d3.geoContains(feature, point), true);
+  });
+  test.end();
+});
+
+tape("a LineString contains epsilon-distant points", function(test) {
+  var epsilon = 1e-6;
+  var line = [[0, 0], [0, 10], [10, 10], [10, 0]];
+  var points = [[0, 5], [epsilon * 1, 5], [0, epsilon], [epsilon * 1, epsilon]];
+  points.forEach(point => {
+    test.true(d3.geoContains({type:"LineString", coordinates: line}, point));
+  });
+  test.end();
+});
+
+tape("a LineString does not contain 10*epsilon-distant points", function(test) {
+  var epsilon = 1e-6;
+  var line = [[0, 0], [0, 10], [10, 10], [10, 0]];
+  var points = [[epsilon * 10, 5], [epsilon * 10, epsilon]];
+  points.forEach(point => {
+    test.false(d3.geoContains({type:"LineString", coordinates: line}, point));
+  });
+  test.end();
+});
+
 tape("a MultiLineString contains any point on one of its components", function(test) {
   test.equal(d3.geoContains({type: "MultiLineString", coordinates: [[[0, 0], [1,2]], [[2, 3], [4,5]]]}, [2, 3]), true);
   test.equal(d3.geoContains({type: "MultiLineString", coordinates: [[[0, 0], [1,2]], [[2, 3], [4,5]]]}, [5, 6]), false);
@@ -114,11 +143,3 @@ tape("null contains nothing", function(test) {
   test.end();
 });
 
-tape("a LineString with 2+ points contains those points", function(test) {
-  var points = [[0, 0], [1,2], [3, 4], [5, 6]];
-  var feature = {type: "LineString", coordinates: points};
-  points.forEach(point => {
-    test.equal(d3.geoContains(feature, point), true);
-  });
-  test.end();
-});
