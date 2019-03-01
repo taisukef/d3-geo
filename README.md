@@ -22,7 +22,7 @@ D3 uses [GeoJSON](http://geojson.org/geojson-spec.html) to represent geographic 
 
 ## Installing
 
-If you use NPM, `npm install d3-geo`. Otherwise, download the [latest release](https://github.com/d3/d3-geo/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-geo.v1.min.js) or as part of [D3 4.0](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
+If you use NPM, `npm install d3-geo`. Otherwise, download the [latest release](https://github.com/d3/d3-geo/releases/latest). You can also load directly from [d3js.org](https://d3js.org), either as a [standalone library](https://d3js.org/d3-geo.v1.min.js) or as part of [D3](https://github.com/d3/d3). AMD, CommonJS, and vanilla environments are supported. In vanilla, a `d3` global is exported:
 
 ```html
 <script src="https://d3js.org/d3-array.v1.min.js"></script>
@@ -35,7 +35,7 @@ var projection = d3.geoEqualEarth(),
 </script>
 ```
 
-[Try d3-geo in your browser.](https://tonicdev.com/npm/d3-geo)
+[Try d3-geo in your browser.](https://observablehq.com/collection/@d3/d3-geo)
 
 ## API Reference
 
