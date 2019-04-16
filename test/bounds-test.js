@@ -255,6 +255,13 @@ tape("bounds: Polygon - ring", function(test) {
   test.end();
 });
 
+tape("bounds: Sphere", function(test) {
+  test.deepEqual(d3.geoBounds({
+    type: "Sphere"
+  }), [[-180, -90], [180, 90]]);
+  test.end();
+});
+
 tape("bounds: NestedCollection", function(test) {
   test.deepEqual(d3.geoBounds({
     type: "FeatureCollection",
