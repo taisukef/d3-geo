@@ -30,6 +30,14 @@ rollup.rollup({input: "src/polygonContains.js"})
     test.end();
   });
 
+  tape("geoPolygonContains wraps longitudes", function(test) {
+    var polygon = d3_geo.geoCircle().center([300, 0])().coordinates;
+    test.equal(polygonContains(polygon, [300, 0]), 1);
+    test.equal(polygonContains(polygon, [-60, 0]), 1);
+    test.equal(polygonContains(polygon, [-420, 0]), 1);
+    test.end();
+  });
+
   tape("geoPolygonContains(southPole, point) returns the expected value", function(test) {
     var polygon = [[[-60, -80], [60, -80], [180, -80], [-60, -80]]];
     test.equal(polygonContains(polygon, [0, 0]), 0);
