@@ -36,6 +36,7 @@
     "canvas": "1",
     "d3-format": "1",
     "eslint": "5",
+    "eslint-plugin-es5": "1",
     "rollup": "0.64",
     "rollup-plugin-terser": "1",
     "tape": "4",
