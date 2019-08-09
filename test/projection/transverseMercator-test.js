@@ -1,6 +1,8 @@
 var tape = require("tape"),
     d3 = require("../../");
 
+require("../pathEqual");
+
 tape("transverseMercator.clipExtent(null) sets the default automatic clip extent", function(test) {
   var projection = d3.geoTransverseMercator().translate([0, 0]).scale(1).clipExtent(null).precision(0);
   test.pathEqual(d3.geoPath(projection)({type: "Sphere"}), "M3.141593,3.141593L0,3.141593L-3.141593,3.141593L-3.141593,-3.141593L-3.141593,-3.141593L0,-3.141593L3.141593,-3.141593L3.141593,3.141593Z");
