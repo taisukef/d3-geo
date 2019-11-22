@@ -227,7 +227,7 @@ A convenience method for [*projection*.fitSize](#projection_fitSize) where the h
 
 <a href="#projection_fitHeight" name="projection_fitHeight">#</a> <i>projection</i>.<b>fitHeight</b>(<i>height</i>, <i>object</i>) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js "Source")
 
-A convenience method for [*projection*.fitSize](#projection_fitSize) where the width is automatically chosen from the aspect ratio of *object* and the given contraint on *height*.
+A convenience method for [*projection*.fitSize](#projection_fitSize) where the width is automatically chosen from the aspect ratio of *object* and the given constraint on *height*.
 
 #### Azimuthal Projections
 
