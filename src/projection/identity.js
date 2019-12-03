@@ -16,17 +16,16 @@ export default function() {
       x0 = null, y0, x1, y1, // clip extent
       postclip = identity,
       cache,
-      cacheStream,
-      projection;
+      cacheStream;
 
   function reset() {
     cache = cacheStream = null;
     return projection;
   }
 
-  projection = function(p) {
+  function projection (p) {
     return [p[0] * k + tx, p[1] * k + ty];
-  };
+  }
   projection.invert = function(p) {
     return [(p[0] - tx) / k, (p[1] - ty) / k];
   };
