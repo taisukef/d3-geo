@@ -24,10 +24,10 @@ export default function() {
   }
 
   function projection (p) {
-    return [p[0] * k + tx, p[1] * k + ty];
+    return [p[0] * k * sx + tx, p[1] * k * sy + ty];
   }
   projection.invert = function(p) {
-    return [(p[0] - tx) / k, (p[1] - ty) / k];
+    return [(p[0] - tx) / k * sx, (p[1] - ty) / k * sy];
   };
   projection.stream = function(stream) {
     return cache && cacheStream === stream ? cache : cache = transform(postclip(cacheStream = stream));
