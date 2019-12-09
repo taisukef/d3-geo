@@ -33,3 +33,22 @@ tape("identity(point).reflectX(…) and reflectY() return the transformed point"
   test.projectionEqual(identity.reflectY(false), [   3,   7], [ 106,  24]);
   test.end();
 });
+
+tape("geoPath(identity) returns the path", function(test) {
+  var identity = d3.geoIdentity().translate([0, 0]).scale(1),
+    path = d3.geoPath().projection(identity);
+  test.equal(path({type:"LineString", coordinates: [[0,0], [10,10]]}), "M0,0L10,10");
+  identity.translate([30,90]).scale(2).reflectY(true);
+  test.equal(path({type:"LineString", coordinates: [[0,0], [10,10]]}), "M30,90L50,70");
+  test.end();
+});
+
+tape("geoPath(identity) respects clipExtent", function(test) {
+  var identity = d3.geoIdentity().translate([0, 0]).scale(1),
+    path = d3.geoPath().projection(identity);
+  identity.clipExtent([[5,5], [40, 80]]);
+  test.equal(path({type:"LineString", coordinates: [[0,0], [10,10]]}), "M5,5L10,10");
+  identity.translate([30,90]).scale(2).reflectY(true).clipExtent([[35,76], [45, 86]]);
+  test.equal(path({type:"LineString", coordinates: [[0,0], [10,10]]}), "M35,85L44,76");
+  test.end();
+});
