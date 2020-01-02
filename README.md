@@ -650,7 +650,7 @@ function matrix(a, b, c, d, tx, ty) {
 
 <a href="#geoIdentity" name="geoIdentity">#</a> d3.<b>geoIdentity</b>() [<>](https://github.com/d3/d3-geo/blob/master/src/projection/identity.js "Source")
 
-The identity transform can be used to scale, translate and clip planar geometry. It implements [*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), [*projection*.fitExtent](#projection_fitExtent), [*projection*.fitSize](#projection_fitSize), [*projection*.fitWidth](#projection_fitWidth), [*projection*.fitHeight](#projection_fitHeight), [*projection*.clipExtent](#projection_clipExtent), [*projection*.reflectX](#projection_reflectX) and [*projection*.reflectY](#projection_reflectY).
+The identity transform can be used to scale, translate and clip planar geometry. It implements [*projection*.scale](#projection_scale), [*projection*.translate](#projection_translate), [*projection*.fitExtent](#projection_fitExtent), [*projection*.fitSize](#projection_fitSize), [*projection*.fitWidth](#projection_fitWidth), [*projection*.fitHeight](#projection_fitHeight), [*projection*.clipExtent](#projection_clipExtent), [*projection*.angle](#projection_angle), [*projection*.reflectX](#projection_reflectX) and [*projection*.reflectY](#projection_reflectY).
 
 ### Clipping
 
