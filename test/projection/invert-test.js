@@ -21,6 +21,7 @@ require("./projectionEqual");
   function conicEquidistant() { return d3.geoConicEquidistant().parallels([20, 30]); },
   function conicEquidistant() { return d3.geoConicEquidistant().parallels([30, 30]); },
   function conicEquidistant() { return d3.geoConicEquidistant().parallels([-35, -50]); },
+  function conicEquidistant() { return d3.geoConicEquidistant().parallels([40, 60]).rotate([-120,0]); },
   d3.geoEquirectangular,
   d3.geoEqualEarth,
   d3.geoGnomonic,
