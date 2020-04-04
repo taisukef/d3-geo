@@ -11,6 +11,7 @@ require("./projectionEqual");
   function conicConformal() { return d3.geoConicConformal().parallels([20, 30]); },
   function conicConformal() { return d3.geoConicConformal().parallels([30, 30]); },
   function conicConformal() { return d3.geoConicConformal().parallels([-35, -50]); },
+  function conicConformal() { return d3.geoConicConformal().parallels([40, 60]).rotate([-120,0]); },
   d3.geoConicEqualArea,
   function conicEqualArea() { return d3.geoConicEqualArea().parallels([20, 30]); },
   function conicEqualArea() { return d3.geoConicEqualArea().parallels([-30, 30]); },
