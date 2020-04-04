@@ -15,6 +15,7 @@ require("./projectionEqual");
   function conicEqualArea() { return d3.geoConicEqualArea().parallels([20, 30]); },
   function conicEqualArea() { return d3.geoConicEqualArea().parallels([-30, 30]); },
   function conicEqualArea() { return d3.geoConicEqualArea().parallels([-35, -50]); },
+  function conicEqualArea() { return d3.geoConicEqualArea().parallels([40, 60]).rotate([-120,0]); },
   d3.geoConicEquidistant,
   function conicEquidistant() { return d3.geoConicEquidistant().parallels([20, 30]); },
   function conicEquidistant() { return d3.geoConicEquidistant().parallels([30, 30]); },
