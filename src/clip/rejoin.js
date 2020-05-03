@@ -31,7 +31,7 @@ export default function(segments, compareIntersection, startInside, interpolate,
         return;
       }
       // handle degenerate cases by moving the point
-      else p1[0] += 2 * epsilon;
+      p1[0] += 2 * epsilon;
     }
 
     subject.push(x = new Intersection(p0, segment, null, true));
