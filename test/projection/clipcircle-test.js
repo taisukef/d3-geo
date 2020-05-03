@@ -1,9 +1,6 @@
 var tape = require("tape"),
     d3 = require("../../");
 
-require("../inDelta");
-require("./projectionEqual");
-
 tape("projection.clipAngle() deals with degenerate polygons", function(test) {
   // https://observablehq.com/d/495020ca139c39bd
   var polygon = {
