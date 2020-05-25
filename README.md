@@ -182,9 +182,9 @@ If *scale* is specified, sets the projection’s scale factor to the specified v
 
 If *translate* is specified, sets the projection’s translation offset to the specified two-element array [<i>t<sub>x</sub></i>, <i>t<sub>y</sub></i>] and returns the projection. If *translate* is not specified, returns the current translation offset which defaults to [480, 250]. The translation offset determines the pixel coordinates of the projection’s [center](#projection_center). The default translation offset places ⟨0°,0°⟩ at the center of a 960×500 area.
 
-<a href="#projection_center" name="projection_center">#</a> <i>projection</i>.<b>center</b>([<i>longitude, latitude</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js "Source")
+<a href="#projection_center" name="projection_center">#</a> <i>projection</i>.<b>center</b>([<i>center</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js "Source")
 
-If *center* is specified, sets the projection’s center to the specified *center*, a two-element array of longitude followed by latitude in degrees and returns the projection. If *center* is not specified, returns the current center, which defaults to ⟨0°,0°⟩.
+If *center* is specified, sets the projection’s center to the specified *center* and returns the projection. The center must be specified as a two-element array of [*longitude*, *latitude*] in degrees. If *center* is not specified, returns the current center, which defaults to ⟨0°,0°⟩.
 
 <a href="#projection_angle" name="projection_angle">#</a> <i>projection</i>.<b>angle</b>([<i>angle</i>]) [<>](https://github.com/d3/d3-geo/blob/master/src/projection/index.js "Source")
 
