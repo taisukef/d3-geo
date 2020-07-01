@@ -38,7 +38,7 @@
   },
   "sideEffects": false,
   "devDependencies": {
-    "canvas": "1",
+    "canvas": "1 - 2",
     "d3-format": "1",
     "eslint": "6",
     "eslint-plugin-es5": "1",
