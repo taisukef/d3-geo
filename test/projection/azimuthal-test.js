@@ -5,9 +5,9 @@ require("../pathEqual");
 
 tape("azimuthal projections don't crash on the antipode", function(test) {
   for (const p of [
-    d3.geoAzimuthalEqualArea()([0,180]),
-    d3.geoAzimuthalEqualArea()([0,-180]),
-    d3.geoAzimuthalEquidistant()([0,180])
+    d3.geoAzimuthalEqualArea()([180, 0]),
+    d3.geoAzimuthalEqualArea()([-180, 0]),
+    d3.geoAzimuthalEquidistant()([180, 0])
   ]) {
     test.assert(Math.abs(p[0]) < Infinity);
     test.assert(Math.abs(p[1]) < Infinity);

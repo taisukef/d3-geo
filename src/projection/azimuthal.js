@@ -5,7 +5,7 @@ export function azimuthalRaw(scale) {
     var cx = cos(x),
         cy = cos(y),
         k = scale(cx * cy);
-        if (k === Infinity) k = 0;
+        if (k === Infinity) return [2, 0];
     return [
       k * cy * sin(x),
       k * sin(y)
