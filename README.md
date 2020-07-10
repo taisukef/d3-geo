@@ -297,7 +297,7 @@ This is a U.S.-centric composite projection of three [d3.geoConicEqualArea](#geo
 
 [<img src="https://raw.githubusercontent.com/d3/d3-geo/master/img/albersUsa-parameters.png" width="480" height="250">](https://bl.ocks.org/Fil/7723167596af40d9159be34ffbf8d36b)
 
-See [d3-composite-projections](http://geoexamples.com/d3-composite-projections/) for more examples.
+See [Albers USA with Territories](https://www.npmjs.com/package/geo-albers-usa-territories) for an extension to all US territories, and [d3-composite-projections](http://geoexamples.com/d3-composite-projections/) for more examples.
 
 #### Conic Projections
 
