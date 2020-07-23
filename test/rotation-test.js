@@ -24,7 +24,7 @@ tape("a rotation of [-45°, -45°] rotates longitude and latitude", function(tes
   test.end();
 });
 
-tape("a rotation of [-45°, -45°] inverse rotation of longitude and latitude", function(test) {
+tape("a rotation of [-45°, 45°] inverse rotation of longitude and latitude", function(test) {
   var rotation = d3.geoRotation([-45, 45]).invert([-54.73561, 30]);
   test.inDelta(rotation[0], 0, 1e-6);
   test.inDelta(rotation[1], 0, 1e-6);
