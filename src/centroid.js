@@ -1,5 +1,5 @@
 import {Adder} from "d3-array";
-import {asin, atan2, cos, degrees, epsilon, epsilon2, radians, sin, sqrt} from "./math.js";
+import {asin, atan2, cos, degrees, epsilon, epsilon2, hypot, radians, sin, sqrt} from "./math.js";
 import noop from "./noop.js";
 import stream from "./stream.js";
 
@@ -102,7 +102,7 @@ function centroidRingPoint(lambda, phi) {
       cx = y0 * z - z0 * y,
       cy = z0 * x - x0 * z,
       cz = x0 * y - y0 * x,
-      m = sqrt(cx * cx + cy * cy + cz * cz),
+      m = hypot(cx, cy, cz),
       w = asin(m), // line weight = angle
       v = m && -w / m; // area weight multiplier
   X2.add(v * cx);
@@ -127,17 +127,17 @@ export default function(object) {
   var x = +X2,
       y = +Y2,
       z = +Z2,
-      m = x * x + y * y + z * z;
+      m = hypot(x, y, z);
 
   // If the area-weighted ccentroid is undefined, fall back to length-weighted ccentroid.
   if (m < epsilon2) {
     x = X1, y = Y1, z = Z1;
     // If the feature has zero length, fall back to arithmetic mean of point vectors.
     if (W1 < epsilon) x = X0, y = Y0, z = Z0;
-    m = x * x + y * y + z * z;
+    m = hypot(x, y, z);
     // If the feature still has an undefined ccentroid, then return.
-    if (m < epsilon2 * epsilon2) return [NaN, NaN];
+    if (m < epsilon2) return [NaN, NaN];
   }
 
-  return [atan2(y, x) * degrees, asin(z / sqrt(m)) * degrees];
+  return [atan2(y, x) * degrees, asin(z / m) * degrees];
 }
