@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as fs from "fs";
+import {readFileSync} from "fs";
 import * as topojson from "topojson-client";
 import {Canvas} from "canvas";
 import * as d3 from "../src/index.js";
@@ -15,7 +15,7 @@ if (!/^[a-z0-9]+$/i.test(projectionName)) throw new Error;
 const canvas = new Canvas(width, height),
     context = canvas.getContext("2d");
 
-var world = JSON.parse(fs.readFileSync("node_modules/world-atlas/world/50m.json")),
+const world = JSON.parse(readFileSync("node_modules/world-atlas/world/50m.json")),
     graticule = d3.geoGraticule(),
     outline = {type: "Sphere"};
 
@@ -23,14 +23,11 @@ var world = JSON.parse(fs.readFileSync("node_modules/world-atlas/world/50m.json"
 //   case "littrow": outline = graticule.extent([[-90, -60], [90, 60]]).outline(); break;
 // }
 
-var projection;
+const projection = (projectionSymbol == 'geoAngleorient30')
+  ? d3.geoEquirectangular().clipAngle(90).angle(-30).precision(0.1).fitExtent([[0,0],[width,height]], {type:"Sphere"})
+  : d3[projectionSymbol]().precision(0.1);
 
-if (projectionSymbol == 'geoAngleorient30')
-  projection = d3.geoEquirectangular().clipAngle(90).angle(-30).precision(0.1).fitExtent([[0,0],[width,height]], {type:"Sphere"});
-else
-  projection = d3[projectionSymbol]().precision(0.1);
-
-var path = d3.geoPath()
+const path = d3.geoPath()
     .projection(projection)
     .context(context);
 

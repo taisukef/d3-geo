@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import * as fs from "fs";
+import {readFileSync} from "fs";
 import * as topojson from "topojson-client";
 import {Canvas} from "canvas";
 import * as d3 from "../src/index.js";
@@ -15,9 +15,9 @@ if (!/^[a-z0-9]+$/i.test(projectionName)) throw new Error;
 const canvas = new Canvas(width, height),
     context = canvas.getContext("2d");
 
-var us = JSON.parse(fs.readFileSync("test/data/us-10m.json"));
+const us = JSON.parse(readFileSync("test/data/us-10m.json"));
 
-var path = d3.geoPath()
+const path = d3.geoPath()
     .projection(d3[projectionSymbol]().precision(0.1))
     .context(context);
 

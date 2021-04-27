@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 
-var width = 960 - 1,
+const width = 960 - 1,
     height = 500 - 1,
     projectionName = process.argv[2],
     projectionSymbol = "geo" + projectionName[0].toUpperCase() + projectionName.slice(1);
 
 if (!/^[a-z0-9]+$/i.test(projectionName)) throw new Error;
 
-var topojson = require("topojson-client"),
-    d3_format = require("d3-format"),
-    d3_geo = require("../");
+import * as topojson from "topojson-client";
+import * as d3 from "../src/index.js";
+import * as d3_format from "d3-format";
 
 var formatNumber = d3_format.format(".6");
 
-var projection = d3_geo[projectionSymbol]()
+var projection = d3[projectionSymbol]()
     .precision(0.01)
     .scale(1)
     .translate([0, 0])
