@@ -37,7 +37,7 @@
     "d3-array": "^2.5.0"
   },
   "devDependencies": {
-    "canvas": "1 - 2",
+    "canvas": "2",
     "d3-format": "1 - 2",
     "eslint": "7",
     "rollup": "2",
@@ -48,7 +48,7 @@
   },
   "scripts": {
     "test": "mocha 'test/**/*-test.js' && eslint src test",
-    "prepublishOnly": "rm -rf dist && yarn test && rollup -c",
+    "prepublishOnly": "rm -rf dist && yarn test && rollup -c && mkdir -p test/output && test/compare-images",
     "postpublish": "git push && git push --tags && cd ../d3.github.com && git pull && cp ../${npm_package_name}/dist/${npm_package_name}.js ${npm_package_name}.v${npm_package_version%%.*}.js && cp ../${npm_package_name}/dist/${npm_package_name}.min.js ${npm_package_name}.v${npm_package_version%%.*}.min.js && git add ${npm_package_name}.v${npm_package_version%%.*}.js ${npm_package_name}.v${npm_package_version%%.*}.min.js && git commit -m \"${npm_package_name} ${npm_package_version}\" && git push && cd -"
   },
   "engines": {
