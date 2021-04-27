@@ -19,7 +19,7 @@ var canvas = new Canvas(width, height),
     context = canvas.getContext("2d");
 
 var world = require("world-atlas/world/50m.json"),
-    graticule = d3_geo.geoGraticule(),
+    graticule = d3.geoGraticule(),
     outline = {type: "Sphere"};
 
 // switch (projectionName) {
@@ -29,11 +29,11 @@ var world = require("world-atlas/world/50m.json"),
 var projection;
 
 if (projectionSymbol == 'geoAngleorient30')
-  projection = d3_geo.geoEquirectangular().clipAngle(90).angle(-30).precision(0.1).fitExtent([[0,0],[width,height]], {type:"Sphere"});
+  projection = d3.geoEquirectangular().clipAngle(90).angle(-30).precision(0.1).fitExtent([[0,0],[width,height]], {type:"Sphere"});
 else
   projection = d3_geo[projectionSymbol]().precision(0.1);
 
-var path = d3_geo.geoPath()
+var path = d3.geoPath()
     .projection(projection)
     .context(context);
 

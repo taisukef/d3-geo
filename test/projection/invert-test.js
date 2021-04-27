@@ -1,7 +1,5 @@
-var tape = require("tape"),
-    d3 = require("../../");
-
-require("./projectionEqual");
+import * as d3 from "../../src/index.js";
+import {assertProjectionEqual} from "./asserts.js";
 
 [
   d3.geoAlbers,
@@ -30,19 +28,17 @@ require("./projectionEqual");
   d3.geoStereographic,
   d3.geoTransverseMercator
 ].forEach(function(factory) {
-  var name = factory.name, projection = factory();
-  tape(name + "(point) and " + name + ".invert(point) are symmetric", function(test) {
+  const name = factory.name, projection = factory();
+  it(name + "(point) and " + name + ".invert(point) are symmetric", () => {
     [[0, 0], [30.3, 24.1], [-10, 42], [-2, -5]].forEach(function(point) {
-      test.projectionEqual(projection, point, projection(point));
+      assertProjectionEqual(projection, point, projection(point));
     });
-    test.end();
-  });
+});
 });
 
-tape("albersUsa(point) and albersUsa.invert(point) are symmetric", function(test) {
-  var projection = d3.geoAlbersUsa();
+it("albersUsa(point) and albersUsa.invert(point) are symmetric", () => {
+  const projection = d3.geoAlbersUsa();
   [[-122.4194, 37.7749], [-74.0059, 40.7128], [-149.9003, 61.2181], [-157.8583, 21.3069]].forEach(function(point) {
-    test.projectionEqual(projection, point, projection(point));
+    assertProjectionEqual(projection, point, projection(point));
   });
-  test.end();
 });
