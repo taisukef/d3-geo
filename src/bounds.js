@@ -1,4 +1,4 @@
-import {Adder} from "d3-array";
+import {Adder} from "https://taisukef.github.io/d3-array/src/index.js";
 import {areaStream, areaRingSum} from "./area.js";
 import {cartesian, cartesianCross, cartesianNormalizeInPlace, spherical} from "./cartesian.js";
 import {abs, degrees, epsilon, radians} from "./math.js";

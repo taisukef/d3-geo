@@ -1,4 +1,4 @@
-import {Adder} from "d3-array";
+import {Adder} from "https://taisukef.github.io/d3-array/src/index.js";
 import {cartesian, cartesianCross, cartesianNormalizeInPlace} from "./cartesian.js";
 import {abs, asin, atan2, cos, epsilon, epsilon2, halfPi, pi, quarterPi, sign, sin, tau} from "./math.js";
 

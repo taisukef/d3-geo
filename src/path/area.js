@@ -1,4 +1,4 @@
-import {Adder} from "d3-array";
+import {Adder} from "https://taisukef.github.io/d3-array/src/index.js";
 import {abs} from "../math.js";
 import noop from "../noop.js";
 

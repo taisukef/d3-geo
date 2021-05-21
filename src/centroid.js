@@ -1,4 +1,4 @@
-import {Adder} from "d3-array";
+import {Adder} from "https://taisukef.github.io/d3-array/src/index.js";
 import {asin, atan2, cos, degrees, epsilon, epsilon2, hypot, radians, sin, sqrt} from "./math.js";
 import noop from "./noop.js";
 import stream from "./stream.js";

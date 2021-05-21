@@ -2,7 +2,7 @@ import clipBuffer from "./buffer.js";
 import clipRejoin from "./rejoin.js";
 import {epsilon, halfPi} from "../math.js";
 import polygonContains from "../polygonContains.js";
-import {merge} from "d3-array";
+import {merge} from "https://taisukef.github.io/d3-array/src/index.js";
 
 export default function(pointVisible, clipLine, interpolate, start) {
   return function(sink) {

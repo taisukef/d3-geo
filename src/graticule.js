@@ -1,4 +1,4 @@
-import {range} from "d3-array";
+import {range} from "https://taisukef.github.io/d3-array/src/index.js";
 import {abs, ceil, epsilon} from "./math.js";
 
 function graticuleX(y0, y1, dy) {
